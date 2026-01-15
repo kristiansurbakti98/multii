@@ -1,7 +1,7 @@
 name: Run Bot PHP
 
 on:
-  workflow_dispatch: # Jalankan manual 1x melalui tombol hijau
+  workflow_dispatch: # Menjalankan secara manual (1x jalan)
 
 jobs:
   build:
@@ -19,10 +19,10 @@ jobs:
 
       - name: Run Script with Inputs
         run: |
-          # Penjelasan Urutan printf:
-          # '1' -> Memilih menu [1] Tambah akun
-          # 'kristian...' -> Input Email
-          # 'Mozilla...' -> Input User Agent
-          # '_ga=GA1...' -> Input Cookie
+          # URUTAN INPUT BERDASARKAN LOG:
+          # 1. Pilih Menu: 1 (Tambah akun)
+          # 2. Input Email: kristiansurbakti98@gmail.com
+          # 3. Input User Agent: Mozilla/5.0 (Windows NT 10.0; ...)
+          # 4. Input Cookie: _ga=GA1.1.1293056643...
           
           printf '1\nkristiansurbakti98@gmail.com\nMozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36\n_ga=GA1.1.1293056643.1768467211; uf=3653ad37bd23f20e059f0d490457ae77; utt=Asia/Jakarta; ls=en-US,id-ID,id,en; cf_clearance=dSx4Eio8b0ciRZinTPXWv5hM4dWszO8GVSGcuIl__jg-1768467213-1.2.1.1-6gcpydTxMfOcQNeRq5l7PZH4YNZphwJqJxU2dfX8K535T4O9dh4ODdOiAH2qOR1yF.tCI1CHup.PsX6Dz2_8NgK._FaHSZNklaKz57B9vjBVfJ_CCQB4OMSp6YGQEZvPAq1VY3M7FlYbFjde13BHwHG0YGBJfn0BBI7BdyBapVbXdEuN8Wi9nn7RJqnCMdyRaKJW6fETjVXXBgcKfbk6psqqGyf5dzjRu1DyDotsaVxtkOCadwnMBKTbsENDBj9T; csrf_cookie_name=29c9d0a5ca3a4c6b3e72f7b198ddc827; AccountReady=132646; bitmedia_fid=eyJmaWQiOiI5MWQxMmI1M2QxMmE0NDUzMTY4MzVmODE3OWM2NmFkZCIsImZpZG5vdWEiOiJlZGQ4OThiYzJkNjk2M2I5ZjQxNjA3Nzg3NWU3NWJlNiJ9; ci_session=at0dor30mooosedmbjgk95vpeces8t48; _ga_26TB8SG0MB=GS2.1.s1768467211$o1$g1$t1768467397$j17$l0$h0\n' | php bot.php
