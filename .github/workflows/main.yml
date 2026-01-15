@@ -1,4 +1,17 @@
-steps:
+name: Run Bot PHP
+
+on:
+  schedule:
+    # Menjalankan bot otomatis setiap 30 menit
+    - cron: '*/30 * * * *'
+  # Memungkinkan Anda menjalankan bot secara manual dari tab Actions
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
@@ -6,8 +19,12 @@ steps:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.1'
+          extensions: curl, json, phar
 
-      # INI ADALAH BAGIAN "RUN SCRIPT WITH INPUTS"
       - name: Run Script with Inputs
         run: |
-          printf "email@gmail.com\ncookie_anda\nuser_agent_anda\n" | php bot.php
+          # GANTI TEKS DI BAWAH INI DENGAN DATA ASLI ANDA
+          # Format: "EMAIL\nCOOKIE\nUSER_AGENT\n"
+          # \n berfungsi sebagai tombol ENTER
+          
+          printf "emailanda@gmail.com\nISI_COOKIE_DISINI\nMozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Mobile Safari/537.36\n" | php bot.php
