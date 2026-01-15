@@ -1,1 +1,13 @@
+steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
 
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+
+      # INI ADALAH BAGIAN "RUN SCRIPT WITH INPUTS"
+      - name: Run Script with Inputs
+        run: |
+          printf "email@gmail.com\ncookie_anda\nuser_agent_anda\n" | php bot.php
