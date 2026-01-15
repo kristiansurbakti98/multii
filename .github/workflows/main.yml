@@ -1,7 +1,7 @@
 name: Run Bot PHP
 
 on:
-  workflow_dispatch: # Menjalankan manual 1x
+  workflow_dispatch:
 
 jobs:
   build:
@@ -15,17 +15,15 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.1'
-          extensions: curl, json, phar
 
       - name: Run Script with Inputs
         env:
-          TERM: xterm-256color # Mengatasi error 'TERM variable not set'
+          TERM: xterm-256color
         run: |
-          # Mengirim input secara berurutan dengan jeda yang lebih lama
-          # Urutan: 1 (Tambah Akun) -> Email -> User Agent -> Cookie
           {
-            echo "1"; sleep 5;
-            echo "kristiansurbakti98@gmail.com"; sleep 5;
-            echo "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"; sleep 5;
-            echo "_ga=GA1.1.1293056643.1768467211; uf=3653ad37bd23f20e059f0d490457ae77; utt=Asia/Jakarta; ls=en-US,id-ID,id,en; cf_clearance=dSx4Eio8b0ciRZinTPXWv5hM4dWszO8GVSGcuIl__jg-1768467213-1.2.1.1-6gcpydTxMfOcQNeRq5l7PZH4YNZphwJqJxU2dfX8K535T4O9dh4ODdOiAH2qOR1yF.tCI1CHup.PsX6Dz2_8NgK._FaHSZNklaKz57B9vjBVfJ_CCQB4OMSp6YGQEZvPAq1VY3M7FlYbFjde13BHwHG0YGBJfn0BBI7BdyBapVbXdEuN8Wi9nn7RJqnCMdyRaKJW6fETjVXXBgcKfbk6psqqGyf5dzjRu1DyDotsaVxtkOCadwnMBKTbsENDBj9T; csrf_cookie_name=29c9d0a5ca3a4c6b3e72f7b198ddc827; AccountReady=132646; bitmedia_fid=eyJmaWQiOiI5MWQxMmI1M2QxMmE0NDUzMTY4MzVmODE3OWM2NmFkZCIsImZpZG5vdWEiOiJlZGQ4OThiYzJkNjk2M2I5ZjQxNjA3Nzg3NWU3NWJlNiJ9; ci_session=at0dor30mooosedmbjgk95vpeces8t48; _ga_26TB8SG0MB=GS2.1.s1768467211$o1$g1$t1768467397$j17$l0$h0"; sleep 5;
+            echo "1"; sleep 5; # Menu Utama: Tambah Akun
+            echo "1"; sleep 5; # Sub-Menu: Login/regis Akun
+            echo "kristiansurbakti98@gmail.com"; sleep 5; # Email
+            echo "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"; sleep 5; # User Agent
+            echo "_ga=GA1.1.1293056643.1768467211; uf=3653ad37bd23f20e059f0d490457ae77; utt=Asia/Jakarta; ls=en-US,id-ID,id,en; cf_clearance=dSx4Eio8b0ciRZinTPXWv5hM4dWszO8GVSGcuIl__jg-1768467213-1.2.1.1-6gcpydTxMfOcQNeRq5l7PZH4YNZphwJqJxU2dfX8K535T4O9dh4ODdOiAH2qOR1yF.tCI1CHup.PsX6Dz2_8NgK._FaHSZNklaKz57B9vjBVfJ_CCQB4OMSp6YGQEZvPAq1VY3M7FlYbFjde13BHwHG0YGBJfn0BBI7BdyBapVbXdEuN8Wi9nn7RJqnCMdyRaKJW6fETjVXXBgcKfbk6psqqGyf5dzjRu1DyDotsaVxtkOCadwnMBKTbsENDBj9T; csrf_cookie_name=29c9d0a5ca3a4c6b3e72f7b198ddc827; AccountReady=132646; bitmedia_fid=eyJmaWQiOiI5MWQxMmI1M2QxMmE0NDUzMTY4MzVmODE3OWM2NmFkZCIsImZpZG5vdWEiOiJlZGQ4OThiYzJkNjk2M2I5ZjQxNjA3Nzg3NWU3NWJlNiJ9; ci_session=at0dor30mooosedmbjgk95vpeces8t48; _ga_26TB8SG0MB=GS2.1.s1768467211$o1$g1$t1768467397$j17$l0$h0"; sleep 5; # Cookie
           } | php bot.php
